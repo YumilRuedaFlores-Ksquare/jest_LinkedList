@@ -17,8 +17,6 @@ class LinkedList {
         this.size = 0;
     }
 
- 
- 
     addTail(element){
     // creates a new node
     const tmpnode = new Node(element);
@@ -179,6 +177,7 @@ class LinkedList {
         }
         console.log(arr);
     }
+    
     #order(reverse){
         //let = prev, curr;
         let prev =this.head;
