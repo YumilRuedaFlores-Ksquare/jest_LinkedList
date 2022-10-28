@@ -10,6 +10,7 @@ class Node {
 }
 
 class LinkedList {
+    //Init with null
     constructor(head = null, tail = null)
     {
         this.head = head;
@@ -20,21 +21,23 @@ class LinkedList {
     addTail(element){
     // creates a new node
     const tmpnode = new Node(element);
+    //change my size
     this.size++;
-
+    //if the tail is NOT null 
     if (this.tail) {
         this.tail.next = tmpnode;
         this.tail = tmpnode;
         return tmpnode.element;
-      }
-    
-      this.head = this.tail = tmpnode;
-      return tmpnode.element;
+    }
+      
+    this.head = this.tail = tmpnode;
+    return tmpnode.element;
 }
 
     addHead(element){
     const tmpnode = new Node(element);
 
+    //I verify some chases as head null(first element), also just the head and others.
         if(this.head == null){
             this.head = tmpnode; 
         } else if(this.size == 1){
@@ -46,8 +49,7 @@ class LinkedList {
             tmpnode.next = this.head;
             this.head = tmpnode;
         }
-        
-
+    
         this.size++;
         return element;
     }
@@ -55,13 +57,14 @@ class LinkedList {
     addMiddle(element){
     const tmpnode = new Node(element);
 
+        //like before, differents chases, the important is the third one.
         if(this.head == null){
-            // we have no head this must be first entry, make head
             this.head = tmpnode; 
         } else if(this.size == 1){
             this.head.next = tmpnode;
             this.tail = tmpnode;
         }else{
+            //calcule of the middle position
             const middle = (this.size%2 == 0)? (this.size/2): Math.round(this.size/2) ;
             console.log(middle);
             let prev ;
@@ -102,11 +105,10 @@ class LinkedList {
     }
     
     deleteLast(){
+        //for delete the last, all the depend of the size, bc i have a tail.
         if (this.size == 1){
             this.tail = this.head.element = null;
             this.head.next = null;
-            
-            this.size = 0;
 
         }else if(this.size == 2){
             this.tail = this.head;
@@ -132,6 +134,8 @@ class LinkedList {
                 return null;
 
             }else{
+                //more dificult delete bc it's not simple as add, for that I added two more conditions
+                //a less 1 for the odd chase and a conditios for the return in the odd chase also
                 const middle = (this.size%2 == 0)? (this.size/2): Math.round(this.size/2)-1 ;
                 console.log(middle);
                 let prev ;
@@ -157,7 +161,7 @@ class LinkedList {
         }
     
     sort(){
-        
+        //Private function to order HIGH->LOW with false (means false to reverse).
         this.#order(false);
         return this.#list();
 
@@ -167,7 +171,7 @@ class LinkedList {
         this.#order(true);
         return this.#list();
     }
-
+    //Just for see what is happening inside my list
     printList(){
         let element = this.head;
         let arr = [];
@@ -177,7 +181,8 @@ class LinkedList {
         }
         console.log(arr);
     }
-    
+
+    //private methode to order the list HIGH->LOW with FALSE and LOW ->HIGH with TRUE
     #order(reverse){
         //let = prev, curr;
         let prev =this.head;
@@ -215,6 +220,7 @@ class LinkedList {
             }
         }
     }
+    //privatefunciton to return the list in an array, just for verify mr sort/reverse functions.
     #list(){
         let element = this.head;
         let arr = [];
