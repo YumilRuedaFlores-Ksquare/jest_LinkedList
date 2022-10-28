@@ -1,0 +1,22 @@
+{
+  "name": "jest_linkedlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "linkedlist.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YumilRuedaFlores-Ksquare/jest_LinkedList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YumilRuedaFlores-Ksquare/jest_LinkedList/issues"
+  },
+  "homepage": "https://github.com/YumilRuedaFlores-Ksquare/jest_LinkedList#readme",
+  "devDependencies": {
+    "jest": "^29.2.2"
+  }
+}
